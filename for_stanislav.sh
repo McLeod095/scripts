@@ -16,7 +16,7 @@ if ! mountpoint -q -- ${REMOTE_OUTPUT_DIR}; then
 	exit 1
 fi 
 
-if ! mountpoint -q -- ${OUTPUT}; then
+if ! mountpoint -q -- ${OUTPUT_DIR}; then
 	echo "${OUTPUT_DIR} is't mount" | mail -s "Backup error" audit@corp.net
 	exit 1
 fi
