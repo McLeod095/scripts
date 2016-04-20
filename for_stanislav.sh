@@ -8,7 +8,7 @@ OUTPUT_DIR="/backup"
 #LOG=${OUTPUT_DIR}/dump.log
 LOCK="SET GLOBAL read_only = 1"
 UNLOCK="UNLOCK TABLES"
-FT=date +%Y-%m-%d_%H%M
+FT=$(date +%Y-%m-%d_%H%M)
 REMOTE_OUTPUT_DIR="/mnt/backup"
 
 if ! mountpoint -q -- ${REMOTE_OUTPUT_DIR}; then 
