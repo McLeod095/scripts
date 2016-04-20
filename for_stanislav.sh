@@ -11,7 +11,7 @@ UNLOCK="UNLOCK TABLES"
 FT=date +%Y-%m-%d_%H%M
 REMOTE_OUTPUT_DIR="/mnt/backup"
 
-if mountpoint -q -- ${REMOTE_OUTPUT_DIR}; then
+if mountpoint -q -- ${REMOTE_OUTPUT_DIR} && mountpoint -q -- ${OUTPUT}; then
 
 	rm ${OUTPUT_DIR}/dump.sql.gz
 	rm ${OUTPUT_DIR}/master.mysql.log
