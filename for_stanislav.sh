@@ -8,7 +8,7 @@ OUTPUT_DIR="/backup"
 #LOG=${OUTPUT_DIR}/dump.log
 LOCK="SET GLOBAL read_only = 1"
 UNLOCK="UNLOCK TABLES"
-FT=date +%Y-%m-%d_%H%M
+FT=$(date +%Y-%m-%d_%H%M)
 REMOTE_OUTPUT_DIR="/mnt/backup"
 
 if ! mountpoint -q -- ${REMOTE_OUTPUT_DIR}; then 
@@ -16,7 +16,7 @@ if ! mountpoint -q -- ${REMOTE_OUTPUT_DIR}; then
 	exit 1
 fi 
 
-if ! mountpoint -q -- ${OUTPUT}; then
+if ! mountpoint -q -- ${OUTPUT_DIR}; then
 	echo "${OUTPUT_DIR} is't mount" | mail -s "Backup error" audit@corp.net
 	exit 1
 fi
